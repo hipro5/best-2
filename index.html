@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cell Cycle Interactive Quiz</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1 class="title">Cell Cycle Quiz</h1>
+      <div class="meta">
+        <div class="progress" aria-label="Question progress">
+          <div id="progressBar" class="progress__bar"></div>
+        </div>
+        <div class="timer" aria-live="polite">
+          <span class="timer__label">Time</span>
+          <span id="timer" class="timer__value">05:00</span>
+        </div>
+      </div>
+    </header>
+
+    <section id="quiz" class="card" aria-live="polite">
+      <!-- Populated by app.js -->
+    </section>
+
+    <footer class="footer">
+      <button id="submitBtn" class="btn" disabled>Submit</button>
+      <button id="nextBtn" class="btn btn--ghost" disabled>Next</button>
+    </footer>
+  </main>
+
+  <template id="questionTemplate">
+    <div class="q-header">
+      <div class="pill" id="qIndexPill"></div>
+      <h2 id="qText" class="q-text"></h2>
+    </div>
+    <figure id="qFigure" class="q-figure" hidden>
+      <img id="qImage" alt="" />
+      <figcaption id="qCaption" class="q-caption"></figcaption>
+    </figure>
+    <ul id="options" class="options" role="listbox" aria-label="Answer choices"></ul>
+    <p id="hint" class="hint" hidden></p>
+  </template>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "dayjs": "https://esm.sh/dayjs@1.11.11"
+    }
+  }
+  </script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
+
